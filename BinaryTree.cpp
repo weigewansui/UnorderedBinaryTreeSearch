@@ -31,13 +31,6 @@ Node* BinaryTree::insert(int key) {
 
 	//when there is no root = new Node, 
 	insert(root, key);
-	// if (root == NULL)
-	// {
-	// 	root = new Node;
-	// 	root->v = key;
-	// 	root->left = NULL;
-	// 	root->right = NULL;
-	// }
 
 	return root;
 }
@@ -187,41 +180,7 @@ void BinaryTree::SuperInsert(int NodeName, int key){
 				cout<<"Successfully insert node "<<key<<"!\n";
 				return;
 			} else if (nnn == 2) {
-				// why tmp changes with PoorChild?
-			    // Node* tmp;
-			    // tmp = PoorChild;
-			    // Because erase poor child will delete all the trees
-			    // Cannot erase that; Just directly insert;
-			    // works to attach but failed to insert new node;
-			 //    Node* tmp = PoorChild;
-			 //    PoorChild = NULL;
-				// insert(PoorChild, key);
-				// cout<<"Successfully insert node "<<key<<", you can also attach the poor child to node "<<key<<endl;
-				// cout<<"Which father do you want the poor child to be adopted by? Input name of the father (i.e. 1,2,3,4....) including node "<< key<<"?\n";
-				// int NewFather;
-				// cin>>NewFather;
-				// SmartAttach(NewFather, tmp);
-				// return;
-				// 
 				
-				// cout<<NodeName<<"'s "<< decision<< PoorChild->v<<endl;
-				// //cout<<"TMP is pointing to "<<PoorChild->v<<endl;
-				// cout<<"---------------------------------------\n";
-				// cout<<(*HH)->v<<endl;
-				//free(PoorChild); //without free() it I cannot make it to NULL, WHY?
-				// if (Pos == 'r'){
-				// 	cout<<"---------------"<<father->right->v<<endl;
-				// 	father->right == NULL;
-				// 	insert(father->right, key);
-				// }
-				// if (Pos == 'l'){
-				// 	cout<<"---------------"<<father->left->v<<endl;
-				// 	father->right == NULL;
-				// 	insert(father->left, key);
-				// }
-
-				// cout<<NodeName<<"'s "<< decision<< PoorChild->v<<endl;
-				// cout<<"TMP is pointing to "<<tmp->v<<endl;
 				*HH = NULL;
 				insert(*HH, key);
 				cout<<"Successfully insert node "<<key<<", you can also attach the poor child to node "<<key<<endl;
@@ -249,7 +208,7 @@ void BinaryTree::SmartAttach(int Father, Node* obj){
 		return;
 	} 
 	if (available_position(Father) == 1) {
-		// tested!!!!!!!!!!!
+
 		cout<<"Both left and right of node " <<Father<<" are avalible, which one do you want?\nl.left, r.right\n";
 		char n;
 		cin>>n;
@@ -258,7 +217,7 @@ void BinaryTree::SmartAttach(int Father, Node* obj){
 		return;
 	}
 	if (available_position(Father) == 2) {
-		//left tested!!!!!!!!!!!
+
 		cout<<"The left of node " <<Father<<" is avalible, Continue to insert?\n1.Yes, 0.No\n";
 		char n;
 		cin>>n;
@@ -308,198 +267,9 @@ void BinaryTree::AttachChild(int Father, Node* obj, char position){
 	}
 
 }
-// void BinaryTree::insert(Node *obj, int key) {
-// 	// cout<<"hello"<<endl;
-// 	// if (obj == NULL)
-// 	// {
-// 		obj = new Node;
-// 		obj->v = key;
-// 		//cout <<obj->v<<endl;
-// 		obj->left = NULL;
-// 		obj->right = NULL;
-// 	// }
 
-// }
-
-// pass pointer by reference, don't need to allocate first
-
-// Node * BinaryTree::findPointer(int k, Node*obj){
-// 	Node *lp  = obj->left;
-// 	Node *rp  = obj->right;
-
-// 	if(obj->v == k){
-// 		return obj;
-// 	} else if (obj != NULL) {
-// 		if (lp != NULL)
-// 		{
-// 			return findPointer(k, lp);
-// 		}
-
-// 		if (rp != NULL)
-// 		{
-// 			return findPointer(k, rp);
-// 		}
-// 	}
-// }
-// 
-
-// Node * BinaryTree::findPointer(int k, Node*obj){
-// 	Node *lp  = obj->left;
-// 	Node *rp  = obj->right;
-// 	if(obj != NULL){
-// 		if(obj->v == k){
-// 			return obj;
-// 		} else if (findPointer(k, lp) != NULL) {
-// 			return lp;
-// 		} else if (findPointer(k, rp)!= NULL) {
-// 			return rp;
-// 		} else return NULL;
-// 	} else {
-// 		return NULL;
-// 	}
-	
-// }
-
-// Node * BinaryTree::findPointer(int k, Node*obj){
-// 	Node *lp  = obj->left;
-// 	Node *rp  = obj->right;
-// 	if(obj != NULL){
-// 		if(obj->v == k){
-// 			return obj;
-// 		} else if (lp->v == k) {
-// 			return findPointer(k, lp);
-// 		} else if (rp->v == k) {
-// 			return findPointer(k, rp);
-// 		} else return NULL;
-// 	} else {
-// 		return NULL;
-// 	}
-	
-// }
-
-// Node * BinaryTree::findPointer(int k, Node*&obj){
-// 	if(obj != NULL){
-// 		cout <<1111111111111111<<endl;
-// 		if (obj->v == k)
-// 			{
-// 				return obj;
-// 				//cout<<1111111111111111111;
-// 			}
-// 		return findPointer(k,obj->left);
-// 		return findPointer(k,obj->right);
-// 	} else return NULL;
-	
-// }
-// Node * BinaryTree::findPointer(int k, Node*&obj){
-// 	if (obj == NULL){
-// 		cout <<1111111111<<endl;
-// 		return NULL;
-// 	}
-
-// 	else if (obj->v == k)
-// 		return obj;
-
-// 	else if (obj->left != NULL) {
-// 		cout<<2222222222222222222<<endl;
-// 		return obj->left;
-// 	}
-// 	else if (findPointer(k, obj->right)->v == k){
-// 		cout<<33333333333333333<<endl;
-// 		return obj->left;
-// 	}
-
-// 	else return NULL;
-// }
-
-// void BinaryTree::findPointer(int k, Node*&obj){
-// 	cout<<"finding "<<obj->v<<endl;
-// 	if (obj != NULL){
-// 		if (obj->v == k)
-// 		{
-// 			cout<<"find!"<<endl;
-// 			return;
-// 			//return obj;
-// 		} else if (obj->left !=NULL) {
-// 			cout<<"finding "<<obj->v<<"'s left"<<endl;
-// 			findPointer(k, obj->left);
-// 		} else if (obj->right !=NULL){
-// 			cout<<"finding "<<obj->v<<"'s right"<<endl;
-// 			findPointer(k,obj->right);
-// 		}
-// 	}
-// }
-
-// work well
-// void BinaryTree::findPointer(int k, Node *&obj){
-// 	cout<<"finding "<<obj->v<<endl;
-// 	if (obj != NULL){
-// 		if (obj->v == k)
-// 		{
-// 			cout<<"find!"<<endl;
-// 			return;
-// 			//return obj;
-// 		} 
-// 		if (obj->left !=NULL) {
-// 			cout<<"finding "<<obj->v<<"'s left"<<endl;
-// 			findPointer(k, obj->left);
-// 		}
-// 		if (obj->right !=NULL){
-// 			cout<<"finding "<<obj->v<<"'s right"<<endl;
-// 			findPointer(k,obj->right);
-// 		}
-// 	}
-// }
-
-// Node* BinaryTree::findPointer(int k, Node *&obj){
-// 	cout<<"finding "<<obj->v<<endl;
-// 	if (obj != NULL){
-// 		if (obj->v == k)
-// 		{
-// 			cout<<"find!"<<endl;
-// 			return obj;
-// 			//return obj;
-// 		} 
-// 		if (findPointer(k, obj->left)!=NULL) {
-// 			cout<<"finding "<<obj->v<<"'s left"<<endl;
-// 			return findPointer(k, obj->left);
-// 		if (findPointer(k,obj->right) !=NULL){
-// 			cout<<"finding "<<obj->v<<"'s right"<<endl;
-// 			return findPointer(k,obj->right);
-// 		} else return NULL;
-// 	}
-// }
 
 /**
- * Pointer value changes if passing by value, whyy?
- *
- * wrong
- */
-// Node* BinaryTree::findPointer(int k, Node *&obj){
-// 	Node *ret;
-// 	if (obj == NULL) { 
-// 		cout <<"NULL argument\n";
-// 		return NULL;
-// 	} else {
-// 		cout<<"finding "<<obj->v<<endl;
-// 		if (obj->v == k) {
-// 		cout<<"find!"<<endl;
-// 		cout<<"findde address value is "<< obj<<endl;
-// 		return obj;
-// 			//return obj;
-// 		} 
-// 		if (findPointer(k, obj->left) == NULL)
-// 		{
-// 			if (findPointer(k, obj->right) == NULL)
-// 		{
-// 			return NULL;
-// 		}
-// 		}
-
-// 		} 
-// 	}
-
-/**
- * finally works!!!!!!1
  * @param  k   [description]
  * @param  obj [description]
  * @return     [description]
@@ -531,181 +301,7 @@ Node* BinaryTree::findPointer(int k, Node *&obj){
 Node* BinaryTree::findPointer(int k){
 	return findPointer(k,root);
 }
-	// Node* BinaryTree::findPointer(int k, Node *&obj){
-	// if (obj == NULL) { 
-	// 	cout <<"NULL argument\n";
-	// 	ret = obj;
-	// 	return ret;
-	// } else {
-	// 	cout<<"finding "<<obj->v<<endl;
-	// 	if (obj->v == k) {
-	// 	cout<<"find!"<<endl;
-	// 	cout<<"findde address value is "<< obj<<endl;
-	// 	ret = obj;
-	// 	return ret;
-	// 		//return obj;
-	// 	} 
-	// 	if (findPointer(k, obj->left) == NULL)
-	// 	{
-	// 			if (findPointer(k, obj->right) == NULL)
-	// 	{
-	// 		return ret;
-	// 	}
-	// 	}
-
-	// 	} 
-	// }
-	// if (obj != NULL) {
-
-	// 	if (obj->v == k) {
-	// 		cout<<"find!"<<endl;
-	// 		return obj;
-	// 		//return obj;
-	// 	} 
-	// 	return findPointer(k, obj->left);
-	// 	return findPointer(k, obj->right);
-	// 	} else return NULL;
-// Node * BinaryTree::findPointer(int k, Node*obj){
-// 	locatePointer(k, obj);
-// 	return locator;	
-// }
-
-// void BinaryTree::locatePointer(int k, Node*obj) {
-// 	Node *lp  = obj->left;
-// 	Node *rp  = obj->right;
-// 	if (obj)
-// 	{
-// 		if(obj->v == k) {
-// 		locator = obj;
-// 		cout<<111111111111111<<endl;
-// 		return;
-// 		}
-
-// 		locatePointer(k,lp);
-// 		locatePointer(k,rp);
-// 	}
-// }
-
-// void BinaryTree::locatePointer(int k, Node*obj) {
-// 	Node *lp  = obj->left;
-// 	Node *rp  = obj->right;
-// 	if(obj->v == k) {
-// 	locator = obj;
-// 	cout<<111111111111111<<endl;
-// 	return;
-// 	}else{
-// 		locatePointer(k,lp);
-// 		locatePointer(k,rp);
-// 	}
-// }
-// 
-
-// void BinaryTree::locatePointer(int k, Node*obj) {
-// 	Node *lp  = obj->left;
-// 	Node *rp  = obj->right;
-// 	Node *tmp;
-// 	while (tmp == NULL)
-// 	{
-// 		if(obj == NULL)
-// 		return;
-
-// 		if (obj->v == k)
-// 		{
-// 			tmp = obj;
-// 			return;
-// 		}
-
-// 		else{
-// 			locatePointer(k,lp);
-// 			locatePointer(k,rp);
-// 		}
-// 	}
-// 		locator = tmp;
-// 		return;
 	
-// }
-// 
-
-// void BinaryTree::locatePointer(int k, Node* &obj) {
-// 	if (obj)
-// 	{
-// 		locatePointer(k,obj->left);
-// 		locatePointer(k,obj->right);
-// 		if (obj->v == k)
-// 			{
-// 				cout<<"find!!";
-// 				// locator = obj;
-// 			}
-// 	}	
-// }
-
-//must have Node *obj, otherwise cannot recursive
-
-// Node * BinaryTree::findPointer(int k, Node*obj){
-// 	Node *lp  = obj->left;
-// 	Node *rp  = obj->right;
-
-// 	if(obj->v == k){
-// 		return obj;
-// 	} else if (obj != NULL) {
-// 		if (lp != NULL)
-// 		{
-// 			return findPointer(k, lp);
-// 		}
-
-// 		if (rp != NULL)
-// 		{
-// 			return findPointer(k, rp);
-// 		}
-// 	}
-// }
-
-
-// void BinaryTree::erase(Node *obj) {
-// 	/**
-// 	 * recursion to delete all the sub-trees attached to the node that is 
-// 	 * going to be deleted
-// 	 */
-
-// 	Node *lp = obj->left;
-// 	Node *rp = obj->right;
-
-// 	if (obj != NULL)
-// 	{
-// 			delete obj;
-// 		//if (lp != NULL) {
-
-// 			erase(lp);
-// 		//}
-
-// 		//if (lp != NULL) {
-// 			erase(rp);
-		
-// 	} else {
-// 		cout << obj->v <<" is already a empty tree/node!\n";
-// 		return;
-
-// 	}
-
-// }
-// 
-
-// void BinaryTree::erase(Node* obj) {
-// 	if (obj != NULL)
-// 	{
-
-// 		//if (lp != NULL) {
-
-// 			erase(obj->left);
-// 		//}
-
-// 		//if (lp != NULL) {
-// 			erase(obj->right);
-// 			free(obj);
-		
-// 	} 
-// }
-
 void BinaryTree::erase(Node* &obj) {
 	if (obj != NULL)
 	{
@@ -757,72 +353,6 @@ void BinaryTree::erase(void){
 	root = NULL;
 }
 
-// ostream& xxxxxx(Node *p) {
-// 	ostream &os;
-// 	if (p != NULL) {
-// 		os << tmp->v<<": ";
-// 		os << tmp->left->v<<", "<<tmp->right->v<<endl;
-// 	}
-// }
-
-// void BinaryTree::print(ostream &os) {
-
-// 	Node *father, *tmp, *left, *right;
-// 	Node *tmp = root;
-// 	if (p != NULL) {
-// 		os << tmp->v<<": ";
-// 		os << tmp->left->v<<", "<<tmp->right->v<<endl;
-// 	}
-// }
-
-
-// void BinaryTree::print(ostream &os, Node *p) {
-// 	if(p != NULL){
-// 		os << p->v <<": "<<p->left->v<<", "<<p->right->v<<endl;
-// 		print(os,p->left);
-// 		print(os,p->right);
-// 	}
-
-// }
-// 
-// 
-// 
-
-/**
- * print the whole tree
- * @param os [description]
- */
-
-// void BinaryTree::print(ostream &os) {
-
-// 	print(os, root);
-
-// }
-
-/**
- *
- * print whole sub tree from a certain node
- */
-// void BinaryTree::print(ostream &os, Node *p) {
-// 	if(p != NULL){
-// 		os << p->v;
-// 		if (p->left != NULL)
-// 		{
-// 			os<<->p->left->v;
-// 			print(os,p->left);
-// 		}
-// 		if (p->right != NULL)
-// 		{
-// 			os<<->p->left->v;
-// 			print(os,p->right)
-// 		}
-// 	}
-
-// 	os<<endl;
-// }
-//works!
-//
-//
 /**
  * print subtrees from a certain node;
  * @param os stream
@@ -891,34 +421,6 @@ int BinaryTree::available_position(int NodeName){
 	}
 }
 
-/**
- * Find a father of a node from certain start node
- * @param  NodeName The child that wants to find father
- * @param  start    the start point
- * @return          a pointer pointing to the father
- */
-// Node * BinaryTree::findFather(int NodeName, Node *start){
-// 	//cout <<"searching "<<start->v<<endl;
-// 	if (start->left != NULL && start->right != NULL)
-// 	{
-// 		if (start->left->v == NodeName || start->right->v == NodeName) {
-// 			//cout<<"find!\n";
-// 			return start;
-// 		} else {
-// 			if (findFather(NodeName,start->right) == NULL) {
-// 				if(findFather(NodeName,start->left) == NULL){
-// 					return NULL;
-// 				} else {
-// 					return findFather(NodeName,start->left);
-// 				} 
-// 			} else {
-// 				return findFather(NodeName, start->right);
-// 			} 
-// 		}
-// 	} else return NULL;
-
-// }
-// 
 
 Node * BinaryTree::findFather(int NodeName, Node *start){
 	//cout <<"searching "<<start->v<<endl;
@@ -995,8 +497,6 @@ void BinaryTree::SuperErase(int NodeName) {
 
 	Node *father = findFather(NodeName);
 
-	//cout<<"Father name: "<<father->v<<endl;
-
 	// Delete its father's left or right
 	// But this node still exist and was pointed by pos
 	if (father->left->v == NodeName)
@@ -1041,10 +541,8 @@ void BinaryTree::SuperErase(int NodeName) {
 	}
 
 	result = true;
-	//cout<<"I'm out!\n";
 
 	if (pos->left != NULL) {
-		//cout<<"left!!\n";
 		cout<<"Node "<<NodeName<<" is the father of node "<<pos->left->v<<", do you want to erase all the subtree  "<<pos->left->v<<" or give it to another father?\n";
 		cout<<"1. delete, 2.give to another father\n";
 
@@ -1072,7 +570,6 @@ void BinaryTree::SuperErase(int NodeName) {
 		}
 	}
 
-	//cout<<"I'm at 1070!!\n";
 
 	delete(pos);
 	cout<<"Node "<<NodeName<<" deleted!\n";
